@@ -1,13 +1,15 @@
 import { ITreeItems, TypeId } from "../models/models";
 
 class TreeStore {
-  private _arr;
+  private readonly _arr;
 
   constructor(arr: ITreeItems[]) {
     this._arr = arr;
   }
 
-  public getAll() {}
+  public getAll(): ITreeItems[] {
+    return this._arr;
+  }
 
   public getItem(id: TypeId) {}
 
