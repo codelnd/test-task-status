@@ -11,7 +11,9 @@ class TreeStore {
     return this._arr;
   }
 
-  public getItem(id: TypeId) {}
+  public getItem(id: TypeId): ITreeItems | undefined {
+    return this._arr.find((obj) => (obj.id == id ? obj : null));
+  }
 
   public getChildren(id: TypeId) {}
 
