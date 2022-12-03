@@ -5,3 +5,4 @@ const ts = new TreeStore(items);
 
 console.log("getAll", ts.getAll());
 console.log("getItem", ts.getItem(5));
+console.log("getChildren", ts.getChildren("4"));
