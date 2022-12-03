@@ -2,9 +2,11 @@ import { ITreeItems, TypeId } from "../models/models";
 
 class TreeStore {
   private readonly _arr;
+  private _childrenArr: any[];
 
   constructor(arr: ITreeItems[]) {
     this._arr = arr;
+    this._childrenArr = [];
   }
 
   public getAll(): ITreeItems[] {
@@ -19,7 +21,16 @@ class TreeStore {
     return this._arr.filter((obj) => (id == obj.parent ? obj : null));
   }
 
-  public getAllChildren(id: TypeId) {}
+  public getAllChildren(id: TypeId): ITreeItems[] {
+    this._arr.forEach((obj) => {
+      if (id == obj.parent) {
+        this._childrenArr.push(obj);
+        this.getAllChildren(obj.id);
+        return;
+      }
+    });
+    return this._childrenArr.sort((a, b) => (a.id > b.id ? 1 : -1));
+  }
 
   public getAllParents(id: TypeId) {}
 }
