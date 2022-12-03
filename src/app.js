@@ -7,3 +7,4 @@ console.log("getAll", ts.getAll());
 console.log("getItem", ts.getItem(5));
 console.log("getChildren", ts.getChildren("4"));
 console.log("getAllChildren", ts.getAllChildren(2));
+console.log("getAllParents", ts.getAllParents("7"));
